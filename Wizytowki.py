@@ -1,10 +1,15 @@
 class People:
-    def __init__(self, name, surname, company, position, mail):
+    def __init__(self, name, surname, company, position, mail, name_lenght=0):
         self.name = name
         self.surname = surname
         self.company = company
         self.position = position
         self.mail = mail
+        self._name_lenght = name_lenght
+
+        # VARIABLES
+
+        self.contact = "Kontaktuję się z {} {}, {}, {}".format(self.name, self.surname, self.position, self.mail)
 
     def __repr__(self):
         return f'{self.name} {self.surname} {self.company} {self.position} {self.mail}'
@@ -19,6 +24,14 @@ class People:
                 self.mail == other.mail
             )
         )
+
+    @property
+    def name_lenght(self):
+        return self._name_lenght
+
+    @name_lenght.setter
+    def temp(self, val):
+
 
 
 person_one = People(name="Beatrycze", surname="Majewska", company="Hughes & Hatcher",
