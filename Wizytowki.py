@@ -1,14 +1,12 @@
 class People:
-    def __init__(self, name, surname, company, position, mail, name_lenght=0):
+    def __init__(self, name, surname, company, position, mail):
         self.name = name
         self.surname = surname
         self.company = company
         self.position = position
         self.mail = mail
-        self._name_lenght = name_lenght
 
         # VARIABLES
-
         self.contact = "Kontaktuję się z {} {}, {}, {}".format(self.name, self.surname, self.position, self.mail)
 
     def __repr__(self):
@@ -27,11 +25,7 @@ class People:
 
     @property
     def name_lenght(self):
-        return self._name_lenght
-
-    @name_lenght.setter
-    def temp(self, val):
-
+        return self.name_lenght == len(self.name)
 
 
 person_one = People(name="Beatrycze", surname="Majewska", company="Hughes & Hatcher",
@@ -49,3 +43,5 @@ people_base = [person_one, person_two, person_three, person_four, person_five]
 by_name = sorted(people_base, key=lambda people: people.name)
 by_surname = sorted(people_base, key=lambda people: people.surname)
 by_mail = sorted(people_base, key=lambda people: people.mail)
+
+print(person_two.name_lenght)
